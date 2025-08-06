@@ -114,6 +114,64 @@
             <div class="course locked" data-id="practicaProf">Práctica Profesional</div>
         </div>
     </div>
+<script>
+        const courses = document.querySelectorAll('.course');
+        
+        courses.forEach(course => {
+            course.addEventListener('click', () => {
+                if (course.classList.contains('locked') || course.classList.contains('completed')) return;
 
+                course.classList.add('completed');
+
+                const unlocks = course.getAttribute('data-unlock');
+                if (unlocks) {
+                    unlocks.split(',').forEach(id => {
+                        const nextCourse = document.querySelector(`[data-id="${id}"]`);
+                        if (nextCourse) nextCourse.classList.remove('locked');
+                    });
+                }
+            });
+        });
+</script>
+
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .semester {
+            margin: 15px;
+            padding: 15px;
+            border: 2px solid #444;
+            border-radius: 10px;
+            display: inline-block;
+            background: #222;
+            vertical-align: top;
+            width: 250px;
+        }
+        .course {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: pink; /* Color base: no aprobado */
+        }
+        .course.completed {
+            background: lightgreen;
+            text-decoration: line-through;
+        }
+        .course.locked {
+            background: gray;
+            cursor: not-allowed;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+      </style>
+    
 </body>
 </html>
