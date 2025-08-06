@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular de Diseño</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .semester {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            display: inline-block;
+            background: #222;
+            vertical-align: top;
+        }
+        .course {
+            display: block;
+            margin: 5px 0;
+            padding: 8px;
+            background: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .course.locked {
+            background: #555;
+            cursor: not-allowed;
+        }
+        .course.completed {
+            text-decoration: line-through;
+            background: #0a0;
+        }
+    </style>
+</head>
+<body>
 
+    <h1>Malla Curricular - Diseño</h1>
+
+    <div id="grid">
+        <!-- 1° Semestre -->
+        <div class="semester">
+            <h2>1° Semestre</h2>
+            <div class="course" data-id="intro" data-unlock="bidi">Taller de Introducción al Diseño</div>
+            <div class="course" data-id="mat1" data-unlock="mat2">Materiales y Estructura 1</div>
+            <div class="course" data-id="soft1" data-unlock="soft2">Software para el Diseño 1</div>
+            <div class="course" data-id="morf1" data-unlock="morf2">Morfología y Percepción 1</div>
+            <div class="course" data-id="historia">Historia del Diseño</div>
+            <div class="course" data-id="creatividad">Pensamiento para la Creatividad</div>
+        </div>
+
+        <!-- 2° Semestre -->
+        <div class="semester">
+            <h2>2° Semestre</h2>
+            <div class="course locked" data-id="bidi" data-unlock="tri">Taller de Diseño Bidimensional</div>
+            <div class="course locked" data-id="mat2">Materiales y Estructura 2</div>
+            <div class="course locked" data-id="soft2" data-unlock="soft3">Software para el Diseño 2</div>
+            <div class="course locked" data-id="morf2">Morfología y Percepción 2</div>
+            <div class="course" data-id="cultura">Diseño y Cultura</div>
+            <div class="course" data-id="electivo1">Electivo Formación General</div>
+        </div>
+
+        <!-- 3° Semestre -->
+        <div class="semester">
+            <h2>3° Semestre</h2>
+            <div class="course locked" data-id="tri" data-unlock="social">Taller de Diseño Tridimensional</div>
+            <div class="course" data-id="proc1" data-unlock="proc2">Procesos de Producción 1</div>
+            <div class="course locked" data-id="soft3">Software para el Diseño 3</div>
+            <div class="course" data-id="ilustracion">Ilustración</div>
+            <div class="course" data-id="ergonomia">Ergonomía</div>
+            <div class="course" data-id="analisisPsico">Análisis Psicosocial para el Diseño</div>
+        </div>
+
+        <!-- 4° Semestre -->
+        <div class="semester">
+            <h2>4° Semestre</h2>
+            <div class="course locked" data-id="social" data-unlock="local">Taller de Diseño Social</div>
+            <div class="course locked" data-id="proc2" data-unlock="proc3">Procesos de Producción 2</div>
+            <div class="course" data-id="model1" data-unlock="model2">Modelación 3D 1</div>
+            <div class="course" data-id="fotoInt" data-unlock="fotoExt">Fotografía Interior</div>
+            <div class="course" data-id="teoriaCom">Teoría de la Comunicación</div>
+            <div class="course" data-id="analisisAntro">Análisis Antropológico para el Diseño</div>
+        </div>
+
+        <!-- 5° Semestre -->
+        <div class="semester">
+            <h2>5° Semestre</h2>
+            <div class="course locked" data-id="local" data-unlock="global">Taller de Diseño Local</div>
+            <div class="course locked" data-id="proc3" data-unlock="proc4">Procesos de Producción 3</div>
+            <div class="course locked" data-id="model2">Modelación 3D 2</div>
+            <div class="course locked" data-id="fotoExt">Fotografía Exterior</div>
+            <div class="course" data-id="semiotica">Semiótica</div>
+            <div class="course" data-id="analisisSocio">Análisis Sociológico para el Diseño</div>
+            <div class="course" data-id="practicaProc1">Práctica de Procesos de Producción</div>
+        </div>
+
+        <!-- 6° Semestre -->
+        <div class="semester">
+            <h2>6° Semestre</h2>
+            <div class="course locked" data-id="global" data-unlock="innovacion">Taller de Diseño Global</div>
+            <div class="course locked" data-id="proc4">Procesos de Producción 4</div>
+            <div class="course" data-id="aplicaciones">Aplicaciones Digitales</div>
+            <div class="course" data-id="ingles">Inglés</div>
+            <div class="course" data-id="estetica">Estética</div>
+            <div class="course" data-id="metod1" data-unlock="metod2">Metodología de la Investigación 1</div>
+        </div>
+
+        <!-- 7° Semestre -->
+        <div class="semester">
+            <h2>7° Semestre</h2>
+            <div class="course locked" data-id="innovacion" data-unlock="profesional">Taller de Innovación y Diseño</div>
+            <div class="course" data-id="gestion">Gestión del Diseño</div>
+            <div class="course" data-id="etica">Diseño, Ética y Medioambiente</div>
+            <div class="course" data-id="audiovisual">Audiovisual</div>
+            <div class="course" data-id="electivoEsp1">Electivo 1 Formación de Especialidad</div>
+            <div class="course" data-id="electivoEsp2">Electivo 2 Formación de Especialidad</div>
+            <div class="course locked" data-id="metod2">Metodología de la Investigación 2</div>
+            <div class="course" data-id="practicaProc2">Práctica de Procesos de Producción</div>
+        </div>
+
+        <!-- 8° Semestre -->
+        <div class="semester">
+            <h2>8° Semestre</h2>
+            <div class="course locked" data-id="profesional" data-unlock="titulo">Taller Profesional</div>
+            <div class="course" data-id="estrategias">Estrategias de Negocio</div>
+            <div class="course" data-id="electivoEsp3">Electivo 1 Formación de Especialidad</div>
+            <div class="course" data-id="electivoEsp4">Electivo 2 Formación de Especialidad</div>
+            <div class="course" data-id="seminario">Seminario de Diseño</div>
+            <div class="course" data-id="bitacora">Bitácora del Diseñador</div>
+        </div>
+
+        <!-- 9° Semestre -->
+        <div class="semester">
+            <h2>9° Semestre</h2>
+            <div class="course locked" data-id="titulo" data-unlock="practicaProf">Proyecto de Título</div>
+        </div>
+
+        <!-- 10° Semestre -->
+        <div class="semester">
+            <h2>10° Semestre</h2>
+            <div class="course locked" data-id="practicaProf">Práctica Profesional</div>
+        </div>
+    </div>
+
+    <script>
+        const courses = document.querySelectorAll('.course');
+        
+        courses.forEach(course => {
+            course.addEventListener('click', () => {
+                if (course.classList.contains('locked') || course.classList.contains('completed')) return;
+
+                course.classList.add('completed');
+
+                const unlocks = course.getAttribute('data-unlock');
+                if (unlocks) {
+                    unlocks.split(',').forEach(id => {
+                        const nextCourse = document.querySelector(`[data-id="${id}"]`);
+                        if (nextCourse) nextCourse.classList.remove('locked');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
